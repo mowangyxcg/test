@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>生日快乐</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
@@ -38,8 +37,9 @@
 </head>
 <body>
     <canvas id="fireworksCanvas"></canvas>
-    <h1 id="birthdayMessage" class="hidden">生日快乐</h1>
+    <h1 id="birthdayMessage">生日快乐</h1>
     <script>
+        // Fireworks and animation script
         const canvas = document.getElementById('fireworksCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -47,13 +47,6 @@
         const fireworks = [];
         const particles = [];
         let rounds = 3;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
 
         function Firework(x, y, targetX, targetY) {
             this.x = x;
@@ -183,7 +176,7 @@
             } else {
                 setTimeout(() => {
                     document.getElementById('fireworksCanvas').classList.add('hidden');
-                    document.getElementById('birthdayMessage').classList.remove('hidden');
+                    document.getElementById('birthdayMessage').style.opacity = '1';
                 }, 3000);
             }
         }
